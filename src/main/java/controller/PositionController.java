@@ -10,12 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import service.IPositionService;
+import service.PositionService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "api/v1/possitions")
+@RequestMapping(value = "api/v1/positions")
 @CrossOrigin("*")
 public class PositionController {
 
@@ -35,5 +36,6 @@ public class PositionController {
 
         return new ResponseEntity<>(dtos, HttpStatus.OK);
     }
+
 
 }

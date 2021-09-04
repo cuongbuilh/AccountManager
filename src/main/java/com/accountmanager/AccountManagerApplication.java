@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication(scanBasePackages = "service")
 @RestController
-@ComponentScan(basePackageClasses = AccountController.class)
-@ComponentScan(basePackageClasses = Department.class)
-@ComponentScan(basePackageClasses = Position.class)
+@ComponentScan( "controller")
+@ComponentScan( "service")
 @EntityScan("entity")
 @EnableJpaRepositories("repository")
 @Controller
