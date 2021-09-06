@@ -3,12 +3,15 @@ package service;
 import entity.Account;
 import form.AccountFormForCreating;
 import form.AccountFromForUpdating;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import java.util.List;
 
 public interface IAccountService  {
-    public List<Account> getAllAccount();
+    public Page<Account> getAllAccount(Pageable pageable);
 
     public Account getAccountById(short id);
     //

@@ -1,15 +1,18 @@
 package dto;
 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class PositionDto {
     private short id;
 
     private String name;
-    
 
-    public PositionDto(short id, String toString) {
-        this.id = id;
-        this.name = name;
-    }
 
     public short getId() {
         return id;

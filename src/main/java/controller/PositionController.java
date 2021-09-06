@@ -24,7 +24,7 @@ public class PositionController {
     private IPositionService possitionService;
 
     @GetMapping()
-    public ResponseEntity<?> getAllPossitons() {
+    public ResponseEntity<?> getAllPositons() {
         List<Position> entities = possitionService.getAllPossition();
 
         List<PositionDto> dtos = new ArrayList<>();

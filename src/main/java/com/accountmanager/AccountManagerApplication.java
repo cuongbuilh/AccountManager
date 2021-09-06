@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 @EntityScan("entity")
 @EnableJpaRepositories("repository")
 @Controller
+@ComponentScan("filter")
 public class AccountManagerApplication {
 
     public static void main(String[] args) {
