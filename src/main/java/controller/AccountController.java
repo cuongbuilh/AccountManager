@@ -35,11 +35,11 @@ public class AccountController {
     @Autowired
     private IAccountService accountService;
 
+    @CrossOrigin("*")
     @GetMapping()
-    public ResponseEntity<?> getAllAccount(Pageable pageable) {
+    public ResponseEntity<?> getAllAccount(Pageable pageable, @RequestParam(required = false) String search) {
 //        List<Account> entities = accountService.getAllAccount();
-        Page<Account> entities = accountService.getAllAccount(pageable);
-
+        Page<Account> entities = accountService.getAllAccount(pageable, search);
 //        List<AccountDto> dtos = new ArrayList<>();
 //
 //        // convert entities --> dtos
@@ -49,7 +49,6 @@ public class AccountController {
 //                    account.getPosition().getName().toString(), account.getCreateDate());
 //            dtos.add(dto);
 //        }
-
         Page<AccountDto> dtoPage = entities.map(new Function<Account, AccountDto>() {
             @Override
             public AccountDto apply(Account account) {
@@ -75,17 +74,19 @@ public class AccountController {
     }
 
 
-    @PostMapping(consumes = { MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<?> createDepartment( AccountFormForCreating form ) {
+    @CrossOrigin("*")
+    @PostMapping()
+    public ResponseEntity<?> createDepartment(@RequestBody AccountFormForCreating form ) {
         System.out.println(form);
         accountService.createAccount(form);
         return new ResponseEntity<String>("Create successfully!", HttpStatus.CREATED);
     }
 
 
-    @PutMapping(value = "/{id}", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    @CrossOrigin("*")
+    @PutMapping(value = "/{id}")
     public ResponseEntity<?> updateDepartment(@PathVariable(name = "id") short id,
-                                                AccountFromForUpdating form) {
+                                               @RequestBody AccountFromForUpdating form) {
         accountService.updateAccount(id, form);
 
         System.out.println("updateID: "+id);

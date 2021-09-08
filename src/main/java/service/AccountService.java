@@ -6,11 +6,12 @@ import form.AccountFromForUpdating;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import repository.IAccountRepository;
 import repository.IDepartmentRepository;
 import repository.IPositionRepository;
-
+import specification.AccountSpecification;
 
 
 import java.util.List;
@@ -25,8 +26,17 @@ public class AccountService implements IAccountService {
     private IPositionRepository positionRepository;
 
     @Override
-    public Page<Account> getAllAccount(Pageable pageable) {
-        return accountRepository.findAll(pageable);
+    public Page<Account> getAllAccount(Pageable pageable, String search) {
+        Specification<Account> where = null;
+
+        if (search != null) {
+            AccountSpecification nameSpecification = new AccountSpecification("fullname", "LIKE", search);
+            AccountSpecification emailSpecification = new AccountSpecification("email", "LIKE", search);
+            AccountSpecification departmentSpecification = new AccountSpecification("department.name", "LIKE", search);
+            where = Specification.where(nameSpecification).or(emailSpecification).or(departmentSpecification);
+        }
+
+        return accountRepository.findAll(where, pageable);
     }
 
     @Override

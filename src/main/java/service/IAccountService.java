@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IAccountService  {
-    public Page<Account> getAllAccount(Pageable pageable);
+    public Page<Account> getAllAccount(Pageable pageable, String search);
 
     public Account getAccountById(short id);
     //
