@@ -150,6 +150,7 @@ public class AccountService implements IAccountService {
         account.setDepartment(department);
         account.setPosition(position);
         account.setPassword(passwordEncoder.encode(form.getPassword()));
+        account.setStatus(AccountStatus.NOT_ACTIVE);
         accountRepository.save(account);
 
         // create new user registration token

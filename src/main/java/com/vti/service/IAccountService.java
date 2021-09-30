@@ -27,10 +27,6 @@ public interface IAccountService extends UserDetailsService {
     public void updateAccount(short id, AccountFormForUpdating form);
 
     public void deleteAccount(short id);
-//
-//	public boolean isAccountExistsByID(short id);
-//
-//	public boolean isAccountExistsByName(String name);
 
     public void createAccountRegister(AccountFormForCreatingRegister form);
 

@@ -24,9 +24,9 @@ public class AccountRegisterController {
     private IAccountService accountService;
 
     @PostMapping()
-    public ResponseEntity<?> createDepartment(@RequestBody AccountFormForCreatingRegister form) {
+    public ResponseEntity<?> CreateAccount(@RequestBody AccountFormForCreatingRegister form) {
         accountService.createAccountRegister(form);
-        return new ResponseEntity<String>("We have sent 1 email. Please check email to active account!", HttpStatus.CREATED);
+        return new ResponseEntity<String>("We have sent 1 email. Please check email to active account!", HttpStatus.OK);
     }
 
     @GetMapping("/userRegistrationConfirmRequest")

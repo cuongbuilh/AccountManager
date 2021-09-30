@@ -31,6 +31,4 @@ public class LoginInfoDto {
     public String getStatus() {
         return status;
     }
-
-
 }

@@ -48,12 +48,12 @@ public class Account implements Serializable {
     private String fullname;
 
     @ManyToOne
-    @JoinColumn(name = "DepartmentID", nullable = false)
+    @JoinColumn(name = "DepartmentID", nullable = true)
     @Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
     private Department department;
 
     @ManyToOne
-    @JoinColumn(name = "PositionID", nullable = false)
+    @JoinColumn(name = "PositionID", nullable = true)
     private Position position;
 
     @Column(name = "CreateDate")
@@ -65,7 +65,11 @@ public class Account implements Serializable {
     private String password;
 
     @Enumerated(EnumType.ORDINAL)
-    @Column(name = "`status`", nullable = false)
-    private AccountStatus status = AccountStatus.NOT_ACTIVE;
+    @Column(name = "`status`", nullable = true)
+    private AccountStatus status;
+
+    @Column(name = "PathImage", length = 50, unique = true, updatable = true)
+    private String pathImage;
+
 
 }
