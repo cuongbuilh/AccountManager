@@ -17,7 +17,6 @@ public class AccontDto {
     private String fullname;
     private String department;
     private String position;
-    private String pathImage;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date createDate;
     private String status;

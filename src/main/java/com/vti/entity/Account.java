@@ -68,8 +68,5 @@ public class Account implements Serializable {
     @Column(name = "`status`", nullable = true)
     private AccountStatus status;
 
-    @Column(name = "PathImage", length = 50, unique = true, updatable = true)
-    private String pathImage;
-
 
 }

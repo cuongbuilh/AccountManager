@@ -28,13 +28,14 @@ public class WebSecutiryConfiguration extends WebSecurityConfigurerAdapter {
                 .cors()
                 .and()
                 .authorizeRequests()
-                .antMatchers().permitAll()
-//                .antMatchers("/api/v1/accounts", "/api/v1/accounts/*")
-//                .authenticated()
+                .antMatchers("/*").permitAll()
                 .and()
                 .httpBasic()
                 .and()
                 .csrf().disable();
+//                .antMatchers("/api/v1/accounts", "/api/v1/accounts/*")
+//                .authenticated()
+
     }
 }
 

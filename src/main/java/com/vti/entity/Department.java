@@ -24,10 +24,6 @@ import org.hibernate.annotations.CascadeType;
 @AllArgsConstructor
 @Table(name = "Department", catalog = "TestingSystem")
 public class Department implements Serializable {
-
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
 
     @Column(name = "DepartmentID")
@@ -39,6 +35,5 @@ public class Department implements Serializable {
     private String name;
 
     @OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
-    @Cascade(value = {CascadeType.REMOVE, CascadeType.SAVE_UPDATE})
     private List<Account> account;
 }

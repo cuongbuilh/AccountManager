@@ -33,7 +33,7 @@ public class FileService implements IFileService {
 
         // TODO save link file to database
         Account account = accountRepository.getById(id);
-        account.setPathImage(nameImage);
+//        account.setPathImage(nameImage);
         accountRepository.save(account);
         // return link uploaded file
         return path;
@@ -50,7 +50,7 @@ public class FileService implements IFileService {
     @Override
     public String getImgNameByID(short id) {
         Account account = accountRepository.getById(id) ;
-        return account.getPathImage();
+        return "account.getPathImage()";
     }
 }
 

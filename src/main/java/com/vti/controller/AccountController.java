@@ -45,7 +45,7 @@ public class AccountController {
             public AccontDto apply(Account account) {
                 AccontDto dto = new AccontDto(account.getId(), account.getEmail(), account.getUsername(),
                         account.getFullname(), account.getDepartment().getName(),
-                        account.getPosition().getName().toString(), account.getPathImage(), account.getCreateDate(), account.getStatus().toString());
+                        account.getPosition().getName().toString(), account.getCreateDate(), account.getStatus().toString());
                 return dto;
             }
         });
@@ -57,7 +57,7 @@ public class AccountController {
     public ResponseEntity<?> getAccountByID(@PathVariable(name = "id") short id) {
         Account account = accountService.getAccountById(id);
         AccontDto dto = new AccontDto(account.getId(), account.getEmail(), account.getUsername(), account.getFullname(),
-                account.getDepartment().getName(), account.getPosition().getName().toString(), account.getPathImage(), account.getCreateDate(), account.getStatus().toString());
+                account.getDepartment().getName(), account.getPosition().getName().toString(), account.getCreateDate(), account.getStatus().toString());
         System.out.println(dto);
         return new ResponseEntity<AccontDto>(dto, HttpStatus.OK);
     }
@@ -66,7 +66,7 @@ public class AccountController {
     public ResponseEntity<?> getAccountByUsername(@PathVariable(name = "username") String username) {
         Account account = accountService.getAccountByUsername(username);
         AccontDto dto = new AccontDto(account.getId(), account.getEmail(), account.getUsername(), account.getFullname(),
-                account.getDepartment().getName(), account.getPosition().getName().toString(), account.getPathImage(), account.getCreateDate(), account.getStatus().toString());
+                account.getDepartment().getName(), account.getPosition().getName().toString(), account.getCreateDate(), account.getStatus().toString());
         System.out.println(dto);
         return new ResponseEntity<AccontDto>(dto, HttpStatus.OK);
     }
